@@ -121,7 +121,7 @@ fn main() {
     let grayscale_image = imageops::grayscale(&working_image);
 
     // resize the image to an appropriate size for 8.5x11" paper
-    let resized_image = imageops::resize(&grayscale_image, 1275, 1650, FilterType::CatmullRom);
+    let resized_image = imageops::resize(&grayscale_image, 638, 826, FilterType::CatmullRom);
     resized_image.save(tmp_dir.path().join(page_name)).unwrap();
     next_page = next_page + 1;
     print!("Done\n");
@@ -158,7 +158,7 @@ fn write_images_to_pdf_file(input_dir_name: &str, output_file: &Path, doc_title:
 
     let mut image_file = File::open(image_file).unwrap();
     let image = Image::try_from(image::jpeg::JpegDecoder::new(&mut image_file).unwrap()).unwrap();
-    image.add_to_layer(current_layer.clone(), None, None, None, Some(2.0), Some(2.0), None);
+    image.add_to_layer(current_layer.clone(), None, None, None, Some(4.0), Some(4.0), None);
 
     if current_image + 1 <= *num_images {
       let (page_idx, layer_idx) = doc.add_page(Mm(216.0), Mm(279.0), format!("Page {}, Layer 1", current_image));
