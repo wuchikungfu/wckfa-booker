@@ -1,0 +1,17 @@
+[package]
+name = "wckfa-booker"
+description = "Wu Chi Kung Fu Associataion Booker Utility - A tool for turning individual images into a PDF book with one image per page."
+version = "0.1.0"
+authors = ["Scott Johnson <jaywir3@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = "2.33.3"
+kamadak-exif = "0.5.4"
+walkdir = "2"
+chrono = "0.4.0"
+tempdir = "0.3.7"
+image = "0.23.14"
+printpdf = "*"
